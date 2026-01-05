@@ -73,10 +73,24 @@ def automate_preprocessing(input_path, output_folder=None):
     
     return df, df_scaled, scaler
 
-# BAGIAN UNTUK DI-RUN LANGSUNG
 if __name__ == "__main__":
-    # Default paths (sesuaikan)
+    import os
+    
+    # Cek folder saat ini agar kita tahu GitHub sedang berada di mana
+    print(f"Direktori saat ini: {os.getcwd()}")
+    print(f"Isi direktori: {os.listdir('.')}")
+
+    # PATH YANG BENAR UNTUK GITHUB (Tanpa nama Repo di depan)
     input_file = "house_price_raw/house_price_regression_dataset.csv"
     output_dir = "preprocessing/house_price_preprocessing"
     
-    df_clean, df_scaled, scaler = automate_preprocessing(input_file, output_dir)
+    # Validasi: Cek apakah filenya beneran ada sebelum diproses
+    if os.path.exists(input_file):
+        print(f"✅ File ditemukan: {input_file}")
+        df_clean, df_scaled, scaler = automate_preprocessing(input_file, output_dir)
+        print(f"✅ Preprocessing Selesai!")
+    else:
+        print(f"❌ ERROR: File TIDAK ditemukan di {input_file}")
+        # Cek isi folder raw untuk memastikan nama filenya benar
+        if os.path.exists("house_price_raw"):
+            print(f"Isi folder house_price_raw: {os.listdir('house_price_raw')}")
