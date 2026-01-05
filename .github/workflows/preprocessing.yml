@@ -31,7 +31,7 @@ jobs:
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add house_price_preprocessing/
+        git add preprocessing/house_price_preprocessing/
         
         git commit -m "Automated update: Cleaned dataset"
         git push
