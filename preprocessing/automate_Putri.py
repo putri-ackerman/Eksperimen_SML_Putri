@@ -76,7 +76,7 @@ def automate_preprocessing(input_path, output_folder=None):
 # BAGIAN UNTUK DI-RUN LANGSUNG
 if __name__ == "__main__":
     # Default paths (sesuaikan)
-    input_file = "Eksperimen_SML_Putri/house_price_raw/house_price_regression_dataset.csv"
-    output_dir = "Eksperimen_SML_Putri/preprocessing/house_price_preprocessing"
+    input_file = "house_price_raw/house_price_regression_dataset.csv"
+    output_dir = "preprocessing/house_price_preprocessing"
     
     df_clean, df_scaled, scaler = automate_preprocessing(input_file, output_dir)
