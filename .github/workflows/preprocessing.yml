@@ -27,11 +27,11 @@ jobs:
         cd preprocessing
         python automate_Putri.py
         
-    - name: Commit and push preprocessed data
+    - name: Commit and Push Clean Data
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        
-        git commit -m "Automated update: Cleaned dataset"
-        git push
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+
+          git commit -m "Automated update: Cleaned dataset" || exit 0
+          git push || echo "Nothing to push"
